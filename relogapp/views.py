@@ -1,24 +1,3 @@
-# from django.shortcuts import render
-
-# # Create your views here.
-
-# def HomePage(request):
-#     return render(request,'home.html')
-
-# def SignupPage(request):
-#     if request.method=='post':
-#         uname = request.GET['username']
-#         email = request.GET['email']
-#         pass1 = request.GET['password1']
-#         pass2 = request.GET['password2']
-#         print(uname,email,pass1,pass2)
-#     return render(request,'signup.html')
-
-
-# def LoginPage(request):
-#     return render(request,'login.html')
-
-
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -30,10 +9,11 @@ def HomePage(request):
 
 def SignupPage(request):
     if request.method=='POST':
-        uname=request.POST.get('username')
-        email=request.POST.get('email')
-        pass1=request.POST.get('password1')
-        pass2=request.POST.get('password2')
+        uname = request.POST['username']
+        email = request.POST['email']
+        pass1 = request.POST['password1']
+        pass2 = request.POST['password2']
+        
     
 
         if pass1!=pass2:
@@ -65,3 +45,32 @@ def LoginPage(request):
 def LogoutPage(request):
     logout(request)
     return redirect('login')
+
+
+
+
+
+# from django.shortcuts import render
+
+# # Create your views here.
+
+# def HomePage(request):
+#     return render(request,'home.html')
+
+# def SignupPage(request):
+#     if request.method=='post':
+#         uname = request.GET['username']
+#         email = request.GET['email']
+#         pass1 = request.GET['password1']
+#         pass2 = request.GET['password2']
+#         print(uname,email,pass1,pass2)
+#     return render(request,'signup.html')
+
+
+# def LoginPage(request):
+# #     return render(request,'login.html')
+
+#   uname=request.POST.get('username')
+#         email=request.POST.get('email')
+#         pass1=request.POST.get('password1')
+#         pass2=request.POST.get('password2')
